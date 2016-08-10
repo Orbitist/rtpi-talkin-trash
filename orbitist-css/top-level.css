@@ -420,11 +420,11 @@ top: 13px;
 height: 26px;
 }
 .story-slide .btnmapinfo-close.in {
-position: fixed;
+position: absolute;
 -webkit-transition: right 0.5s; /* Safari */
 transition: right 0.5s;
-right: 18px;
-top: 13px;
+right: 10px;
+top: 10px;
 }
 @media (max-width: 600px) {
 .story-slide {
