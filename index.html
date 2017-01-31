@@ -103,7 +103,7 @@ var mapId = 2459; //Orbitist Map Number
 $(document).ready(
     function(){
         $.getJSON(
-            'https://app.orbitist.com/api/v1/map.json?mapid=' + mapId,
+            'https://orbitist.space/maps/api/v1/map.json?mapid=' + mapId,
             function(data){
                 // ciclo l'array
                 for(i=0; i<data.length; i++){
@@ -171,7 +171,7 @@ var json = (function () {
     $.ajax({
         'async': false,
         'global': false,
-        'url': 'https://app.orbitist.com/api/v1/points/' +  mapId + '.json',
+        'url': 'https://orbitist.space/maps/api/v1/points/' +  mapId + '.json',
         'dataType': "json",
         'success': function (data) {
             json = data;
@@ -187,12 +187,12 @@ function orbitistPopup(feature, layer) {
     // does this feature have an image?
     if (feature.properties.point_image.length > 2) {
         layer.bindPopup(
-        	'<a href="' + feature.properties.point_image + '" data-lightbox="' + feature.properties.point_id + '" data-title="' + feature.properties.point_image_caption + '"><img src="' + feature.properties.point_thumbnail + '" width="301px" height="270px" class="popup-top-image"><div class="popupimage-expand"><span class="fa fa-clone"></span></div></a>' + feature.properties.point_lightbox_images + '<div class="popupbody"><div class="popuptitle"><h3>' + feature.properties.point_title + '</h3></div>' + feature.properties.point_embeds + feature.properties.point_body + feature.properties.point_links + '<div class="action-items"><div class="col-xs-6"><a href="https://www.google.com/maps/dir/Current+Location/' + feature.geometry.coordinates[1] + ',' + feature.geometry.coordinates[0] + '" target="_blank"><span class="fa fa-car center-block"></span></a></div><div class="col-xs-6"><a href="https://app.orbitist.com/print/' + feature.properties.point_id + '" target="_blank"><span class="fa fa-print center-block"></span></a></div></div></div>',
+        	'<a href="' + feature.properties.point_image + '" data-lightbox="' + feature.properties.point_id + '" data-title="' + feature.properties.point_image_caption + '"><img src="' + feature.properties.point_thumbnail + '" width="301px" height="270px" class="popup-top-image"><div class="popupimage-expand"><span class="fa fa-clone"></span></div></a>' + feature.properties.point_lightbox_images + '<div class="popupbody"><div class="popuptitle"><h3>' + feature.properties.point_title + '</h3></div>' + feature.properties.point_embeds + feature.properties.point_body + feature.properties.point_links + '<div class="action-items"><div class="col-xs-6"><a href="https://www.google.com/maps/dir/Current+Location/' + feature.geometry.coordinates[1] + ',' + feature.geometry.coordinates[0] + '" target="_blank"><span class="fa fa-car center-block"></span></a></div><div class="col-xs-6"><a href="https://orbitist.space/maps/print/' + feature.properties.point_id + '" target="_blank"><span class="fa fa-print center-block"></span></a></div></div></div>',
         	{closeButton: false}
         );
     } else {
         layer.bindPopup(
-        	'<div class="popupbody"><div class="popuptitle"><h3>' + feature.properties.point_title + '</h3></div>' + feature.properties.point_embeds + feature.properties.point_body + feature.properties.point_links + '<div class="action-items"><div class="col-xs-6"><a href="https://www.google.com/maps/dir/Current+Location/' + feature.geometry.coordinates[1] + ',' + feature.geometry.coordinates[0] + '" target="_blank"><span class="fa fa-car center-block"></span></a></div><div class="col-xs-6"><a href="https://app.orbitist.com/print/' + feature.properties.point_id + '" target="_blank"><span class="fa fa-print center-block"></span></a></div></div></div>',
+        	'<div class="popupbody"><div class="popuptitle"><h3>' + feature.properties.point_title + '</h3></div>' + feature.properties.point_embeds + feature.properties.point_body + feature.properties.point_links + '<div class="action-items"><div class="col-xs-6"><a href="https://www.google.com/maps/dir/Current+Location/' + feature.geometry.coordinates[1] + ',' + feature.geometry.coordinates[0] + '" target="_blank"><span class="fa fa-car center-block"></span></a></div><div class="col-xs-6"><a href="https://orbitist.space/maps/print/' + feature.properties.point_id + '" target="_blank"><span class="fa fa-print center-block"></span></a></div></div></div>',
         	{closeButton: false}
         );
     }
